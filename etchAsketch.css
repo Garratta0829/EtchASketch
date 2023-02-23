@@ -1,7 +1,13 @@
+body {
+    background-color: white;
+}
+
+
 .container {
     width: 500px;
     height: 500px;
     display: grid;
+    border: 1px solid rgb(79, 79, 79);
 }
 
 .title {

@@ -13,13 +13,16 @@
     <div class="container">
 
     </div>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
+    <button onclick="setColor('black')">Black</button>
+    <button onclick="setColor('red')">Red</button>
+    <button onclick="setColor('green')">Green</button>
+    <button onclick="setColor('blue')">Blue</button>
+    <button id="random" onclick="setColor('random')">Random</button>
+    <button>Opacity</button>
+    <button>Eraser</button>
     <br>
     <input type="text" class="input" placeholder="grid size">
-    <button>Select</button>
+    <button class="select-btn" onclick="makeGrid(unit)">Select</button>
 </div>
 
 

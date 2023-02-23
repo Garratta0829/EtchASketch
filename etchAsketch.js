@@ -1,43 +1,80 @@
+
+let buttons = document.querySelectorAll('button')
+const input = document.querySelector('.input')
+const select = document.querySelector('.select-btn')
 let cell;
+let color;
+let unit = input.value;
+let cells;
 
 
 
-function makeGrid() {
+
+ buttons.forEach(button => button.addEventListener('click', () => {
+    color = button.innerText
+        
+}))
+
+function makeGrid(unit) {
     const container = document.querySelector('.container');
-    container.style.gridTemplateColumns = `repeat(16, 1fr)`
-    container.style.gridTemplateRows = `repeat(16, 1fr)`
-    // let grid = unit * unit;
+    container.style.gridTemplateColumns = `repeat(${unit}, 1fr)`
+    container.style.gridTemplateRows = `repeat(${unit}, 1fr)`
+    let grid = unit * unit;
+    let opacity = 0.1;
 
-        for(let i =0; i < 256; i++) {
+        for(let i =0; i < grid; i++) {
             let cell = document.createElement('div');
-            cell.style.backgroundColor = 'blue';
+            // cell.style.border = '1px solid grey';
+            cell.style.backgroundColor = 'white';
+            cell.classList.add('div')
+            
+        
             cell.addEventListener('mouseover', () => {
-                cell.style.backgroundColor = 'white';
+                if (color == 'Random') {
+                    cell.style.backgroundColor = randomColor();
+                } else if (color == 'Opacity') {
+                    cell.style.backgroundColor = 'black';
+                    // cell.style.opacity = '0.1'
+                    cell.style.opacity = parseFloat(cell.style.opacity) + '0.1';
+                    
+                } else if (color == 'Eraser') {
+                    cell.style.backgroundColor = 'white'
+                } else {
+                    cell.style.backgroundColor = color
+                }
             })
-            // cell.setAttribute('id', i)
             container.insertAdjacentElement('beforeend', cell);
             }
-    
 }
 
+function randomColor() {
+    let symbols = '0123456789ABCDEF';
+    const hash = '#';
+    let colorString = []
+    
+    for (let i = 0; i < 6; i ++) {
+        colorString.push(symbols[Math.floor(Math.random() * 16)])
+    }
+        return hash + colorString.join('')
+}
 
-makeGrid();
+function opacity() {
+    let opacity = this.style.opacity;
+    this.style.opacity = opacity ? (parseFloat(opacity) + 0.1) : 0.2;
+}
 
-// cell.forEach(cell => cell.addEventListener('mouseover', (e) => {
-//     cell.style.backgroundColor = 'white';
-// }))
+// if (cell.style.opacity >= 0.1) {
+//     cell.style.opacity += 0.1
+// }
 
+makeGrid(50);
 
-
-// for (let j = 0; j < 256; i++) {
-//     const cell = document.createElement('div');
-//     cell.style.border = '2px solid black';
-//     cell.style.height = '10px';
-//     cell.style.width = '10px';
-//     container.appendChild(cell);
+// function createGrid() {
+//     unit = input.value
 // }
 
 
 
 
-// make cells function, append cells to rows
+
+
