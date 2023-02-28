@@ -8,27 +8,36 @@
     <link rel="stylesheet" href="etchAsketch.css">
 </head>
 <body>
-<div class="body">
-    <h1 class="title">Etch a Sketch</h1>
-    <div class="container">
 
+<div class="border">
+    <div class="base">
+    
+        <h1 class="title">Etch A Sketch</h1>
+        <div class="container">
+        </div>
+        
+        <div class="outer-circle-left">
+            <div class="inner-circle-left"></div>
+        </div>
+        <div class="outer-circle-right">
+            <div class="inner-circle-right"></div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="inputs">
+                <button id="random">Random</button>
+                <button id="opacity" onclick="opacityCells()">Darken</button>
+                <button id="eraser">Eraser</button>
+                <button id="reset" onclick="resetBoard()">Reset</button>
+                <br>
+            </div>
+            <input type="color" class="colorPicker">
+            <input class="slider" type="range" value="25" min="0" max="50">
+        </div>
+        
     </div>
-    <button onclick="setColor('black')">Black</button>
-    <button onclick="setColor('red')">Red</button>
-    <button onclick="setColor('green')">Green</button>
-    <button onclick="setColor('blue')">Blue</button>
-    <button id="random" onclick="setColor('random')">Random</button>
-    <button>Opacity</button>
-    <button>Eraser</button>
-    <br>
-    <input type="text" class="input" placeholder="grid size">
-    <button class="select-btn" onclick="makeGrid(unit)">Select</button>
+
 </div>
-
-
-    
-    
-
-    <script src="etchAsketch.js"></script>
+<script src="etchAsketch.js"></script>
 </body>
 </html>
